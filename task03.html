@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Loop Customization - Even Reverse</title>
+</head>
+<body>
+
+<h2>Task 3: Loop Customization</h2>
+
+<label>Enter numbers from 1 to 20 separated by commas:</label><br>
+<input type="text" id="userNums" placeholder="e.g. 1,2,3,...,20"><br><br>
+<button onclick="processNumbers()">Process</button>
+
+<h3>Even Numbers in Reverse Order:</h3>
+<p id="output"></p>
+
+<script>
+function processNumbers() {
+    let input = document.getElementById("userNums").value;
+    if (!input) {
+        alert("Please enter numbers!");
+        return;
+    }
+
+    // Split input into array of numbers
+    let nums = input.split(",").map(Number);
+
+    // Filter only even numbers
+    let evens = [];
+    let i = 0;
+    while (i < nums.length) {
+        if (nums[i] % 2 === 0) {
+            evens.push(nums[i]);
+        }
+        i++;
+    }
+
+    // Print even numbers in reverse order
+    let output = "";
+    let j = evens.length - 1;
+    while (j >= 0) {
+        output += evens[j] + " ";
+        j--;
+    }
+
+    document.getElementById("output").innerText = output;
+}
+</script>
+
+</body>
+</html>
